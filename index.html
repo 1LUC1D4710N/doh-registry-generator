@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<title>Simple DoH Registry Builder</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
+<style>
+body {
+  font-family: 'Inter', Arial, sans-serif;
+  background: linear-gradient(135deg, #e0e7ff 0%, #f4f6fb 100%);
+  margin: 0;
+  padding: 0;
+  min-height: 100vh;
+}
+h2, h3 {
+  text-align: center;
+  color: #1e293b;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+}
+.container {
+  max-width: 700px;
+  margin: 40px auto;
+  background: #fff;
+  border-radius: 18px;
+  box-shadow: 0 4px 24px rgba(59,130,246,0.10);
+  padding: 40px 32px;
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+form {
+  margin-bottom: 18px;
+}
+label {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  margin-bottom: 10px;
+  font-size: 1rem;
+  color: #222;
+  background: #f7f8fa;
+  border-radius: 10px;
+  padding: 12px 16px;
+  transition: background 0.2s;
+  cursor: pointer;
+  box-shadow: 0 1px 4px rgba(59,130,246,0.04);
+}
+label:hover {
+  background: #e0e7ff;
+}
+input[type="checkbox"] {
+  margin-top: 3px;
+  accent-color: #3b82f6;
+  transform: scale(1.2);
+  cursor: pointer;
+}
+small {
+  display: block;
+  color: #64748b;
+  font-size: 0.92em;
+  margin-top: 2px;
+}
+button, .download-btn {
+  background: linear-gradient(90deg, #3b82f6 0%, #6366f1 100%);
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  padding: 14px 0;
+  font-size: 1.12em;
+  font-weight: 600;
+  cursor: pointer;
+  margin-top: 18px;
+  box-shadow: 0 2px 8px rgba(59,130,246,0.10);
+  transition: background 0.2s, box-shadow 0.2s;
+  display: block;
+  width: 100%;
+  letter-spacing: 0.2px;
+}
+button:hover, .download-btn:hover {
+  background: linear-gradient(90deg, #2563eb 0%, #6366f1 100%);
+  box-shadow: 0 4px 16px rgba(59,130,246,0.18);
+}
+textarea {
+  width: 100%;
+  height: 180px;
+  margin-top: 18px;
+  border-radius: 10px;
+  border: 1px solid #cbd5e1;
+  font-size: 1em;
+  padding: 14px;
+  background: #f7f8fa;
+  resize: vertical;
+  box-sizing: border-box;
+  font-family: 'Inter', Arial, sans-serif;
+  color: #1e293b;
+}
+@media (max-width: 700px) {
+  .container {
+    padding: 18px 4px;
+  }
+  h2, h3 {
+    font-size: 1.3em;
+  }
+  button, .download-btn {
+    font-size: 1em;
+    padding: 10px 0;
+  }
+}
+::selection {
+  background: #6366f1;
+  color: #fff;
+}
+</style>
+</head>
+<body>
+<h2>Select DNS Providers</h2>
+<p style="text-align:center; color:#475569; font-size:1.08em; margin-bottom:18px;">
+Choose only the DNS providers you want for your DoH Well Known Servers. The registry file will include only your selections.<br><br>
+<strong>After downloading:</strong> Import the <code>.reg</code> file into Windows, reboot your system, then set your desired DNS provider in Windows network settings.<br><br>
+For inspiration, check out the HTML source of this page and my prior Extended DoH Well Known Servers release. This project was made to empower users to choose their own DNS providers.<br><br>
+<em>Why?</em> To make secure DNS configuration easy, flexible, and accessible for everyone.
+</p>
+<form id="providerForm" onsubmit="event.preventDefault();">
+  <!-- BEGIN FULL AUTO-GENERATED CHECKBOXES FROM .reg FILE -->
+  <!-- Each checkbox below corresponds to a unique Template/IP group from the .reg file. -->
+  <label><input type="checkbox" value="0" /><strong>Cloudflare</strong><small>1.0.0.1, 1.1.1.1, 2606:4700:4700::1001, 2606:4700:4700::1111</small></label>
+  <label><input type="checkbox" value="1" /><strong>Cloudflare Security</strong><small>1.0.0.2, 1.1.1.2, 2606:4700:4700::1002, 2606:4700:4700::1112</small></label>
+  <label><input type="checkbox" value="2" /><strong>Cloudflare Family</strong><small>1.0.0.3, 1.1.1.3, 2606:4700:4700::1003, 2606:4700:4700::1113</small></label>
+  <label><input type="checkbox" value="3" /><strong>Control D (Unfiltered)</strong><small>76.76.2.0, 76.76.10.0, 2606:1a40::, 2606:1a40:1::</small></label>
+  <label><input type="checkbox" value="4" /><strong>Control D (Malware)</strong><small>76.76.2.1, 76.76.10.1, 2606:1a40::1, 2606:1a40:1::1</small></label>
+  <label><input type="checkbox" value="5" /><strong>Control D (Malware + Ads)</strong><small>76.76.2.2, 76.76.10.2, 2606:1a40::2, 2606:1a40:1::2</small></label>
+  <label><input type="checkbox" value="6" /><strong>Control D (Malware + Ads + Social)</strong><small>76.76.2.3, 76.76.10.3, 2606:1a40::3, 2606:1a40:1::3</small></label>
+  <label><input type="checkbox" value="7" /><strong>Control D (Family)</strong><small>76.76.2.4, 76.76.10.4, 2606:1a40::4, 2606:1a40:1::4</small></label>
+  <label><input type="checkbox" value="8" /><strong>Control D (Uncensored)</strong><small>76.76.2.5, 76.76.10.5, 2606:1a40::5, 2606:1a40:1::5</small></label>
+  <label><input type="checkbox" value="9" /><strong>DNS4EU Protective</strong><small>86.54.11.1, 86.54.11.201, 2a13:1001::86:54:11:1, 2a13:1001::86:54:11:201</small></label>
+  <label><input type="checkbox" value="10" /><strong>DNS4EU Child Safe</strong><small>86.54.11.12, 86.54.11.212, 2a13:1001::86:54:11:12, 2a13:1001::86:54:11:212</small></label>
+  <label><input type="checkbox" value="11" /><strong>DNS4EU No Ads</strong><small>86.54.11.13, 86.54.11.213, 2a13:1001::86:54:11:13, 2a13:1001::86:54:11:213</small></label>
+  <label><input type="checkbox" value="12" /><strong>DNS4EU Child Safe + No Ads</strong><small>86.54.11.11, 86.54.11.211, 2a13:1001::86:54:11:11, 2a13:1001::86:54:11:211</small></label>
+  <label><input type="checkbox" value="13" /><strong>Quad9 (Secured ECS)</strong><small>149.112.112.11, 9.9.9.11, 2620:fe::11, 2620:fe::fe:11</small></label>
+  <label><input type="checkbox" value="14" /><strong>Quad9 (Alternative)</strong><small>149.112.112.9, 2620:fe::fe:9</small></label>
+  <label><input type="checkbox" value="15" /><strong>Quad9 (Unsecured)</strong><small>9.9.9.10, 2620:fe::10, 2620:fe::fe:10</small></label>
+  <label><input type="checkbox" value="16" /><strong>Quad9 (Standard)</strong><small>149.112.112.112, 9.9.9.9, 2620:fe::9, 2620:fe::fe, 2620:fe::fe:9</small></label>
+  <label><input type="checkbox" value="17" /><strong>DNS0.EU</strong><small>193.110.81.0, 185.253.5.0, 2a0f:fc80::, 2a0f:fc81::</small></label>
+  <label><input type="checkbox" value="18" /><strong>DNS0.EU Zero</strong><small>193.110.81.9, 185.253.5.9, 2a0f:fc80::9, 2a0f:fc81::9</small></label>
+  <label><input type="checkbox" value="19" /><strong>DNS0.EU Kids</strong><small>193.110.81.1, 185.253.5.1, 2a0f:fc80::1, 2a0f:fc81::1</small></label>
+  <label><input type="checkbox" value="20" /><strong>Google DNS64</strong><small>2001:4860:4860::64, 2001:4860:4860::6464</small></label>
+  <label><input type="checkbox" value="21" /><strong>Google Public DNS</strong><small>8.8.8.8, 8.8.4.4, 2001:4860:4860::8888, 2001:4860:4860::8844</small></label>
+  <label><input type="checkbox" value="22" /><strong>CleanBrowsing Family</strong><small>185.228.168.168, 185.228.169.168, 2a0d:2a00:1::, 2a0d:2a00:2::</small></label>
+  <label><input type="checkbox" value="23" /><strong>CleanBrowsing Adult</strong><small>185.228.168.10, 185.228.169.11, 2a0d:2a00:1::1, 2a0d:2a00:2::1</small></label>
+  <label><input type="checkbox" value="24" /><strong>CleanBrowsing Security</strong><small>185.228.168.9, 185.228.169.9, 2a0d:2a00:1::2, 2a0d:2a00:2::2</small></label>
+  <label><input type="checkbox" value="25" /><strong>LibreDNS (No Ads)</strong><small>116.202.176.26, 2a01:4f8:1c0c:8274::1</small></label>
+  <label><input type="checkbox" value="26" /><strong>UncensoredDNS Anycast</strong><small>91.239.100.100, 2001:67c:28a4::</small></label>
+  <label><input type="checkbox" value="27" /><strong>UncensoredDNS Unicast</strong><small>89.233.43.71, 2a01:3a0:53:53::</small></label>
+  <label><input type="checkbox" value="28" /><strong>Mullvad DNS (Base)</strong><small>194.242.2.2, 2a07:e340::2</small></label>
+  <label><input type="checkbox" value="29" /><strong>Mullvad DNS (Adblock)</strong><small>194.242.2.3, 2a07:e340::3</small></label>
+  <label><input type="checkbox" value="30" /><strong>Mullvad DNS (Malware)</strong><small>194.242.2.4, 2a07:e340::4</small></label>
+  <label><input type="checkbox" value="31" /><strong>Mullvad DNS (Extended)</strong><small>194.242.2.5, 2a07:e340::5</small></label>
+  <label><input type="checkbox" value="32" /><strong>Mullvad DNS (Family)</strong><small>194.242.2.6, 2a07:e340::6</small></label>
+  <label><input type="checkbox" value="33" /><strong>Mullvad DNS (All)</strong><small>194.242.2.9, 2a07:e340::9</small></label>
+  <label><input type="checkbox" value="34" /><strong>AdGuard DNS</strong><small>94.140.14.14, 94.140.15.15, 2a10:50c0::ad1:ff, 2a10:50c0::ad2:ff</small></label>
+  <label><input type="checkbox" value="35" /><strong>AdGuard DNS (Family)</strong><small>94.140.14.15, 94.140.15.16, 2a10:50c0::bad1:ff, 2a10:50c0::bad2:ff</small></label>
+  <label><input type="checkbox" value="36" /><strong>AdGuard DNS (Unfiltered)</strong><small>94.140.14.140, 94.140.14.141, 2a10:50c0::1:ff, 2a10:50c0::2:ff</small></label>
+  <label><input type="checkbox" value="37" /><strong>OpenDNS</strong><small>208.67.222.222, 208.67.220.220, 2620:119:35::35, 2620:119:53::53</small></label>
+  <label><input type="checkbox" value="38" /><strong>OpenDNS FamilyShield</strong><small>208.67.222.123, 208.67.220.123, 2620:119:35::123, 2620:119:53::123</small></label>
+  <label><input type="checkbox" value="39" /><strong>OpenDNS Sandbox</strong><small>208.67.222.2, 208.67.220.2, 2620:0:ccc::2, 2620:0:ccd::2</small></label>
+  <label><input type="checkbox" value="40" /><strong>NextDNS</strong><small>45.90.28.0, 45.90.30.0, 2a07:a8c0::, 2a07:a8c1::</small></label>
+  <label><input type="checkbox" value="41" /><strong>DNS4EU Unfiltered</strong><small>86.54.11.100, 86.54.11.200, 2a13:1001::86:54:11:100, 2a13:1001::86:54:11:200</small></label>
+  <label><input type="checkbox" value="42" /><strong>LibreDNS (Standard)</strong><small>116.202.176.36, 2a01:4f8:1c0c:8274::2</small></label>
+  <!-- END FULL AUTO-GENERATED CHECKBOXES FROM .reg FILE -->
+</form>
+
+<button type="button" onclick="generateRegistry()">Generate Registry</button>
+<h3>Output</h3>
+<textarea id="output" readonly></textarea><br>
+<button onclick="download()">Download `.reg` file</button>
+
+<script>
+// DNS provider data
+const providers = [
+  // BEGIN FULL AUTO-GENERATED PROVIDERS FROM .reg FILE
+  { name: "Cloudflare (cloudflare-dns.com)", ips: ["1.0.0.1", "1.1.1.1", "2606:4700:4700::1001", "2606:4700:4700::1111"], template: "https://cloudflare-dns.com/dns-query" },
+  { name: "Cloudflare Security", ips: ["1.0.0.2", "1.1.1.2", "2606:4700:4700::1002", "2606:4700:4700::1112"], template: "https://security.cloudflare-dns.com/dns-query" },
+  { name: "Cloudflare Family", ips: ["1.0.0.3", "1.1.1.3", "2606:4700:4700::1003", "2606:4700:4700::1113"], template: "https://family.cloudflare-dns.com/dns-query" },
+  { name: "ControlD p0", ips: ["76.76.2.0", "76.76.10.0", "2606:1a40::", "2606:1a40:1::"], template: "https://freedns.controld.com/p0" },
+  { name: "ControlD p1", ips: ["76.76.2.1", "76.76.10.1", "2606:1a40::1", "2606:1a40:1::1"], template: "https://freedns.controld.com/p1" },
+  { name: "ControlD p2", ips: ["76.76.2.2", "76.76.10.2", "2606:1a40::2", "2606:1a40:1::2"], template: "https://freedns.controld.com/p2" },
+  { name: "ControlD p3", ips: ["76.76.2.3", "76.76.10.3", "2606:1a40::3", "2606:1a40:1::3"], template: "https://freedns.controld.com/p3" },
+  { name: "ControlD Family", ips: ["76.76.2.4", "76.76.10.4", "2606:1a40::4", "2606:1a40:1::4"], template: "https://freedns.controld.com/family" },
+  { name: "ControlD Uncensored", ips: ["76.76.2.5", "76.76.10.5", "2606:1a40::5", "2606:1a40:1::5"], template: "https://freedns.controld.com/uncensored" },
+  { name: "JoinDNS4 Protective", ips: ["86.54.11.1", "86.54.11.201", "2a13:1001::86:54:11:1", "2a13:1001::86:54:11:201"], template: "https://protective.joindns4.eu/dns-query" },
+  { name: "JoinDNS4 Child", ips: ["86.54.11.12", "86.54.11.212", "2a13:1001::86:54:11:12", "2a13:1001::86:54:11:212"], template: "https://child.joindns4.eu/dns-query" },
+  { name: "JoinDNS4 NoAds", ips: ["86.54.11.13", "86.54.11.213", "2a13:1001::86:54:11:13", "2a13:1001::86:54:11:213"], template: "https://noads.joindns4.eu/dns-query" },
+  { name: "JoinDNS4 Child NoAds", ips: ["86.54.11.11", "86.54.11.211", "2a13:1001::86:54:11:11", "2a13:1001::86:54:11:211"], template: "https://child-noads.joindns4.eu/dns-query" },
+  { name: "Quad9 (dns11)", ips: ["149.112.112.11", "9.9.9.11", "2620:fe::11", "2620:fe::fe:11"], template: "https://dns11.quad9.net/dns-query" },
+  { name: "Quad9 (dns9)", ips: ["149.112.112.9", "2620:fe::fe:9"], template: "https://dns9.quad9.net/dns-query" },
+  { name: "Quad9 (dns10)", ips: ["9.9.9.10", "2620:fe::10", "2620:fe::fe:10"], template: "https://dns10.quad9.net/dns-query" },
+  { name: "Quad9 (dns)", ips: ["149.112.112.112", "9.9.9.9", "2620:fe::9", "2620:fe::fe", "2620:fe::fe:9"], template: "https://dns.quad9.net/dns-query" },
+  { name: "dns0.eu", ips: ["193.110.81.0", "185.253.5.0", "2a0f:fc80::", "2a0f:fc81::"], template: "https://dns0.eu/" },
+  { name: "dns0.eu Zero", ips: ["193.110.81.9", "185.253.5.9", "2a0f:fc80::9", "2a0f:fc81::9"], template: "https://zero.dns0.eu/" },
+  { name: "dns0.eu Kids", ips: ["193.110.81.1", "185.253.5.1", "2a0f:fc80::1", "2a0f:fc81::1"], template: "https://kids.dns0.eu/" },
+  { name: "Google (dns64)", ips: ["2001:4860:4860::64", "2001:4860:4860::6464"], template: "https://dns64.dns.google/dns-query" },
+  { name: "Google (dns.google)", ips: ["8.8.8.8", "8.8.4.4", "2001:4860:4860::8888", "2001:4860:4860::8844"], template: "https://dns.google/dns-query" },
+  { name: "CleanBrowsing Family", ips: ["185.228.168.168", "185.228.169.168", "2a0d:2a00:1::", "2a0d:2a00:2::"], template: "https://doh.cleanbrowsing.org/doh/family-filter/" },
+  { name: "CleanBrowsing Adult", ips: ["185.228.168.10", "185.228.169.11", "2a0d:2a00:1::1", "2a0d:2a00:2::1"], template: "https://doh.cleanbrowsing.org/doh/adult-filter/" },
+  { name: "CleanBrowsing Security", ips: ["185.228.168.9", "185.228.169.9", "2a0d:2a00:1::2", "2a0d:2a00:2::2"], template: "https://doh.cleanbrowsing.org/doh/security-filter/" },
+  { name: "LibreDNS NoAds", ips: ["116.202.176.26", "2a01:4f8:1c0c:8274::1"], template: "https://doh.libredns.gr/noads" },
+  { name: "UncensoredDNS Anycast", ips: ["91.239.100.100", "2001:67c:28a4::"], template: "https://anycast.uncensoreddns.org/dns-query" },
+  { name: "UncensoredDNS Unicast", ips: ["89.233.43.71", "2a01:3a0:53:53::"], template: "https://unicast.uncensoreddns.org/dns-query" },
+  { name: "Mullvad DNS", ips: ["194.242.2.2", "2a07:e340::2"], template: "https://dns.mullvad.net/dns-query" },
+  { name: "Mullvad Adblock", ips: ["194.242.2.3", "2a07:e340::3"], template: "https://adblock.dns.mullvad.net/dns-query" },
+  { name: "Mullvad Base", ips: ["194.242.2.4", "2a07:e340::4"], template: "https://base.dns.mullvad.net/dns-query" },
+  { name: "Mullvad Extended", ips: ["194.242.2.5", "2a07:e340::5"], template: "https://extended.dns.mullvad.net/dns-query" },
+  { name: "Mullvad Family", ips: ["194.242.2.6", "2a07:e340::6"], template: "https://family.dns.mullvad.net/dns-query" },
+  { name: "Mullvad All", ips: ["194.242.2.9", "2a07:e340::9"], template: "https://all.dns.mullvad.net/dns-query" },
+  { name: "AdGuard (dns.adguard-dns.com)", ips: ["94.140.14.14", "94.140.15.15", "2a10:50c0::ad1:ff", "2a10:50c0::ad2:ff"], template: "https://dns.adguard-dns.com/dns-query" },
+  { name: "AdGuard Family", ips: ["94.140.14.15", "94.140.15.16", "2a10:50c0::bad1:ff", "2a10:50c0::bad2:ff"], template: "https://family.adguard-dns.com/dns-query" },
+  { name: "AdGuard Unfiltered", ips: ["94.140.14.140", "94.140.14.141", "2a10:50c0::1:ff", "2a10:50c0::2:ff"], template: "https://unfiltered.adguard-dns.com/dns-query" },
+  { name: "OpenDNS", ips: ["208.67.222.222", "208.67.220.220", "2620:119:35::35", "2620:119:53::53"], template: "https://dns.opendns.com/dns-query" },
+  { name: "OpenDNS FamilyShield", ips: ["208.67.222.123", "208.67.220.123", "2620:119:35::123", "2620:119:53::123"], template: "https://familyshield.opendns.com/dns-query" },
+  { name: "OpenDNS Sandbox", ips: ["208.67.222.2", "208.67.220.2", "2620:0:ccc::2", "2620:0:ccd::2"], template: "https://sandbox.opendns.com/dns-query" },
+  { name: "NextDNS", ips: ["45.90.28.0", "45.90.30.0", "2a07:a8c0::", "2a07:a8c1::"], template: "https://dns.nextdns.io/" },
+  { name: "DNS4EU (JoinDNS4) Unfiltered", ips: ["86.54.11.100", "86.54.11.200", "2a13:1001::86:54:11:100", "2a13:1001::86:54:11:200"], template: "https://unfiltered.joindns4.eu/dns-query" },
+  { name: "LibreDNS Standard", ips: ["116.202.176.36", "2a01:4f8:1c0c:8274::2"], template: "https://doh.libredns.gr/dns-query" },
+  // END FULL AUTO-GENERATED PROVIDERS FROM .reg FILE
+];
+
+function generateRegistry() {
+  const checkboxes = document.querySelectorAll("#providerForm input[type=checkbox]");
+  let content = "Windows Registry Editor Version 5.00\n\n[HKEY_LOCAL_MACHINE\\SYSTEM\\CurrentControlSet\\Services\\Dnscache\\Parameters\\DohWellKnownServers]\n\n";
+    for (const cb of checkboxes) {
+      if (cb.checked) {
+        const index = Number.parseInt(cb.value);
+        const p = providers[index];
+        for (const ip of p.ips) {
+          content += `[HKEY_LOCAL_MACHINE\\SYSTEM\\CurrentControlSet\\Services\\Dnscache\\Parameters\\DohWellKnownServers\\${ip}]\n`;
+          content += `"Template"="${p.template}"\n\n`;
+        }
+      }
+    }
+  document.getElementById('output').value = content;
+}
+
+function download() {
+  const text = document.getElementById('output').value;
+  const blob = new Blob([text], { type: 'application/octet-stream' });
+  const url = URL.createObjectURL(blob);
+  const a = document.createElement('a');
+  a.href = url;
+  a.download = 'Doh-Well-Known-Servers.reg';
+  a.click();
+  URL.revokeObjectURL(url);
+}
+</script>
+</body>
+</html>
