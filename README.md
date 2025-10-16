@@ -4,8 +4,8 @@
 # DoH Registry Generator
 
 ### 🖼️ See It in Action
-<a href="https://www.youtube.com/watch?v=n-NvbHO_4BE">
-    <img src="https://img.youtube.com/vi/n-NvbHO_4BE/0.jpg" alt="Windows DoH autotemplate example" width="560" height="315">
+<a href="https://www.youtube.com/watch?v=rigaALmiF1E">
+    <img src="https://img.youtube.com/vi/rigaALmiF1E/0.jpg" alt="Windows DoH autotemplate example" width="560" height="315">
 </a>
 
 ## How to Run This Tool
