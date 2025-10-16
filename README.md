@@ -1,6 +1,21 @@
 
 
+
 # DoH Registry Generator
+
+## How to Run This Tool
+
+**Local usage:**
+1. Download or clone this repository.
+2. Open `index.html` in any modern browser (Edge, Chrome, Firefox, etc.).
+3. Use the interactive page to select DNS providers and generate your registry file.
+
+**Online usage (GitHub Pages):**
+1. Go to the repository’s Settings > Pages.
+2. Set the source to the `main` branch and `/root` (or `/docs` if you move the file).
+3. Save and use the public URL provided by GitHub Pages to access the tool online.
+
+No extra setup or installation is required—just open the file and use!
 
 Generate custom Windows registry files for DNS-over-HTTPS (DoH) Well Known Servers with a simple, interactive HTML tool. Select only the DNS providers you want—your registry file is fully customized to your choices.
 
