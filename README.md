@@ -7,7 +7,7 @@
 
 **Local usage:**
 1. Download or clone this repository.
-2. Open `index.html` in any modern browser (Edge, Chrome, Firefox, etc.).
+2. Open `doh-registry-generator.html` in any modern browser (Edge, Chrome, Firefox, etc.).
 3. Use the interactive page to select DNS providers and generate your registry file.
 
 **Online usage (GitHub Pages):**
@@ -28,7 +28,7 @@ Generate custom Windows registry files for DNS-over-HTTPS (DoH) Well Known Serve
 
 ## How to Use
 
-1. Open `index.html` in your browser
+1. Open `doh-registry-generator.html` in your browser
 2. Checkmark only the DNS providers you want
 3. Click "Generate Registry" to preview your custom file
 4. Download the `.reg` file
