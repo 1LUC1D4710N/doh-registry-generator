@@ -5,7 +5,7 @@
 
 ### 🖼️ See It in Action
 <a href="https://www.youtube.com/watch?v=uHLK47c-mBs">
-    <img src="https://www.youtube.com/watch?v=uHLK47c-mBs/0.jpg" alt="Windows DoH autotemplate example" width="560" height="315">
+    <img src="https://img.youtube.com/vi/uHLK47c-mBs/0.jpg" alt="Windows DoH autotemplate example" width="560" height="315">
 </a>
 
 ## How to Run This Tool
