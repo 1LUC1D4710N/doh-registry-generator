@@ -104,3 +104,4 @@ Created by [1LUC1D4710N](https://github.com/1LUC1D4710N)
 ## Why?
 
 To make secure DNS configuration easy, flexible, and accessible for everyone.
+# doh-registry-generator
