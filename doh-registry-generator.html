@@ -141,9 +141,6 @@ For inspiration, check out the HTML source of this page and my prior Extended Do
   <label><input type="checkbox" value="14" /><strong>Quad9 (Alternative)</strong><small>149.112.112.9, 2620:fe::fe:9</small></label>
   <label><input type="checkbox" value="15" /><strong>Quad9 (Unsecured)</strong><small>9.9.9.10, 2620:fe::10, 2620:fe::fe:10</small></label>
   <label><input type="checkbox" value="16" /><strong>Quad9 (Standard)</strong><small>149.112.112.112, 9.9.9.9, 2620:fe::9, 2620:fe::fe, 2620:fe::fe:9</small></label>
-  <label><input type="checkbox" value="17" /><strong>DNS0.EU</strong><small>193.110.81.0, 185.253.5.0, 2a0f:fc80::, 2a0f:fc81::</small></label>
-  <label><input type="checkbox" value="18" /><strong>DNS0.EU Zero</strong><small>193.110.81.9, 185.253.5.9, 2a0f:fc80::9, 2a0f:fc81::9</small></label>
-  <label><input type="checkbox" value="19" /><strong>DNS0.EU Kids</strong><small>193.110.81.1, 185.253.5.1, 2a0f:fc80::1, 2a0f:fc81::1</small></label>
   <label><input type="checkbox" value="20" /><strong>Google DNS64</strong><small>2001:4860:4860::64, 2001:4860:4860::6464</small></label>
   <label><input type="checkbox" value="21" /><strong>Google Public DNS</strong><small>8.8.8.8, 8.8.4.4, 2001:4860:4860::8888, 2001:4860:4860::8844</small></label>
   <label><input type="checkbox" value="22" /><strong>CleanBrowsing Family</strong><small>185.228.168.168, 185.228.169.168, 2a0d:2a00:1::, 2a0d:2a00:2::</small></label>
@@ -188,17 +185,14 @@ const providers = [
   { name: "ControlD p3", ips: ["76.76.2.3", "76.76.10.3", "2606:1a40::3", "2606:1a40:1::3"], template: "https://freedns.controld.com/p3" },
   { name: "ControlD Family", ips: ["76.76.2.4", "76.76.10.4", "2606:1a40::4", "2606:1a40:1::4"], template: "https://freedns.controld.com/family" },
   { name: "ControlD Uncensored", ips: ["76.76.2.5", "76.76.10.5", "2606:1a40::5", "2606:1a40:1::5"], template: "https://freedns.controld.com/uncensored" },
-  { name: "JoinDNS4 Protective", ips: ["86.54.11.1", "86.54.11.201", "2a13:1001::86:54:11:1", "2a13:1001::86:54:11:201"], template: "https://protective.joindns4.eu/dns-query" },
-  { name: "JoinDNS4 Child", ips: ["86.54.11.12", "86.54.11.212", "2a13:1001::86:54:11:12", "2a13:1001::86:54:11:212"], template: "https://child.joindns4.eu/dns-query" },
-  { name: "JoinDNS4 NoAds", ips: ["86.54.11.13", "86.54.11.213", "2a13:1001::86:54:11:13", "2a13:1001::86:54:11:213"], template: "https://noads.joindns4.eu/dns-query" },
-  { name: "JoinDNS4 Child NoAds", ips: ["86.54.11.11", "86.54.11.211", "2a13:1001::86:54:11:11", "2a13:1001::86:54:11:211"], template: "https://child-noads.joindns4.eu/dns-query" },
+  { name: "DNS4EU Protective", ips: ["86.54.11.1", "86.54.11.201", "2a13:1001::86:54:11:1", "2a13:1001::86:54:11:201"], template: "https://protective.joindns4.eu/dns-query" },
+  { name: "DNS4EU Child", ips: ["86.54.11.12", "86.54.11.212", "2a13:1001::86:54:11:12", "2a13:1001::86:54:11:212"], template: "https://child.joindns4.eu/dns-query" },
+  { name: "DNS4EU NoAds", ips: ["86.54.11.13", "86.54.11.213", "2a13:1001::86:54:11:13", "2a13:1001::86:54:11:213"], template: "https://noads.joindns4.eu/dns-query" },
+  { name: "DNS4EU Child NoAds", ips: ["86.54.11.11", "86.54.11.211", "2a13:1001::86:54:11:11", "2a13:1001::86:54:11:211"], template: "https://child-noads.joindns4.eu/dns-query" },
   { name: "Quad9 (dns11)", ips: ["149.112.112.11", "9.9.9.11", "2620:fe::11", "2620:fe::fe:11"], template: "https://dns11.quad9.net/dns-query" },
   { name: "Quad9 (dns9)", ips: ["149.112.112.9", "2620:fe::fe:9"], template: "https://dns9.quad9.net/dns-query" },
   { name: "Quad9 (dns10)", ips: ["9.9.9.10", "2620:fe::10", "2620:fe::fe:10"], template: "https://dns10.quad9.net/dns-query" },
   { name: "Quad9 (dns)", ips: ["149.112.112.112", "9.9.9.9", "2620:fe::9", "2620:fe::fe", "2620:fe::fe:9"], template: "https://dns.quad9.net/dns-query" },
-  { name: "dns0.eu", ips: ["193.110.81.0", "185.253.5.0", "2a0f:fc80::", "2a0f:fc81::"], template: "https://dns0.eu/" },
-  { name: "dns0.eu Zero", ips: ["193.110.81.9", "185.253.5.9", "2a0f:fc80::9", "2a0f:fc81::9"], template: "https://zero.dns0.eu/" },
-  { name: "dns0.eu Kids", ips: ["193.110.81.1", "185.253.5.1", "2a0f:fc80::1", "2a0f:fc81::1"], template: "https://kids.dns0.eu/" },
   { name: "Google (dns64)", ips: ["2001:4860:4860::64", "2001:4860:4860::6464"], template: "https://dns64.dns.google/dns-query" },
   { name: "Google (dns.google)", ips: ["8.8.8.8", "8.8.4.4", "2001:4860:4860::8888", "2001:4860:4860::8844"], template: "https://dns.google/dns-query" },
   { name: "CleanBrowsing Family", ips: ["185.228.168.168", "185.228.169.168", "2a0d:2a00:1::", "2a0d:2a00:2::"], template: "https://doh.cleanbrowsing.org/doh/family-filter/" },
@@ -220,7 +214,7 @@ const providers = [
   { name: "OpenDNS FamilyShield", ips: ["208.67.222.123", "208.67.220.123", "2620:119:35::123", "2620:119:53::123"], template: "https://familyshield.opendns.com/dns-query" },
   { name: "OpenDNS Sandbox", ips: ["208.67.222.2", "208.67.220.2", "2620:0:ccc::2", "2620:0:ccd::2"], template: "https://sandbox.opendns.com/dns-query" },
   { name: "NextDNS", ips: ["45.90.28.0", "45.90.30.0", "2a07:a8c0::", "2a07:a8c1::"], template: "https://dns.nextdns.io/" },
-  { name: "DNS4EU (JoinDNS4) Unfiltered", ips: ["86.54.11.100", "86.54.11.200", "2a13:1001::86:54:11:100", "2a13:1001::86:54:11:200"], template: "https://unfiltered.joindns4.eu/dns-query" },
+  { name: "DNS4EU Unfiltered", ips: ["86.54.11.100", "86.54.11.200", "2a13:1001::86:54:11:100", "2a13:1001::86:54:11:200"], template: "https://unfiltered.joindns4.eu/dns-query" },
   { name: "LibreDNS Standard", ips: ["116.202.176.36", "2a01:4f8:1c0c:8274::2"], template: "https://doh.libredns.gr/dns-query" },
   // END FULL AUTO-GENERATED PROVIDERS FROM .reg FILE
 ];
