@@ -149,12 +149,6 @@ For inspiration, check out the HTML source of this page and my prior Extended Do
   <label><input type="checkbox" value="25" /><strong>LibreDNS (No Ads)</strong><small>116.202.176.26, 2a01:4f8:1c0c:8274::1</small></label>
   <label><input type="checkbox" value="26" /><strong>UncensoredDNS Anycast</strong><small>91.239.100.100, 2001:67c:28a4::</small></label>
   <label><input type="checkbox" value="27" /><strong>UncensoredDNS Unicast</strong><small>89.233.43.71, 2a01:3a0:53:53::</small></label>
-  <label><input type="checkbox" value="28" /><strong>Mullvad DNS (Base)</strong><small>194.242.2.2, 2a07:e340::2</small></label>
-  <label><input type="checkbox" value="29" /><strong>Mullvad DNS (Adblock)</strong><small>194.242.2.3, 2a07:e340::3</small></label>
-  <label><input type="checkbox" value="30" /><strong>Mullvad DNS (Malware)</strong><small>194.242.2.4, 2a07:e340::4</small></label>
-  <label><input type="checkbox" value="31" /><strong>Mullvad DNS (Extended)</strong><small>194.242.2.5, 2a07:e340::5</small></label>
-  <label><input type="checkbox" value="32" /><strong>Mullvad DNS (Family)</strong><small>194.242.2.6, 2a07:e340::6</small></label>
-  <label><input type="checkbox" value="33" /><strong>Mullvad DNS (All)</strong><small>194.242.2.9, 2a07:e340::9</small></label>
   <label><input type="checkbox" value="34" /><strong>AdGuard DNS</strong><small>94.140.14.14, 94.140.15.15, 2a10:50c0::ad1:ff, 2a10:50c0::ad2:ff</small></label>
   <label><input type="checkbox" value="35" /><strong>AdGuard DNS (Family)</strong><small>94.140.14.15, 94.140.15.16, 2a10:50c0::bad1:ff, 2a10:50c0::bad2:ff</small></label>
   <label><input type="checkbox" value="36" /><strong>AdGuard DNS (Unfiltered)</strong><small>94.140.14.140, 94.140.14.141, 2a10:50c0::1:ff, 2a10:50c0::2:ff</small></label>
@@ -201,12 +195,6 @@ const providers = [
   { name: "LibreDNS NoAds", ips: ["116.202.176.26", "2a01:4f8:1c0c:8274::1"], template: "https://doh.libredns.gr/noads" },
   { name: "UncensoredDNS Anycast", ips: ["91.239.100.100", "2001:67c:28a4::"], template: "https://anycast.uncensoreddns.org/dns-query" },
   { name: "UncensoredDNS Unicast", ips: ["89.233.43.71", "2a01:3a0:53:53::"], template: "https://unicast.uncensoreddns.org/dns-query" },
-  { name: "Mullvad DNS", ips: ["194.242.2.2", "2a07:e340::2"], template: "https://dns.mullvad.net/dns-query" },
-  { name: "Mullvad Adblock", ips: ["194.242.2.3", "2a07:e340::3"], template: "https://adblock.dns.mullvad.net/dns-query" },
-  { name: "Mullvad Base", ips: ["194.242.2.4", "2a07:e340::4"], template: "https://base.dns.mullvad.net/dns-query" },
-  { name: "Mullvad Extended", ips: ["194.242.2.5", "2a07:e340::5"], template: "https://extended.dns.mullvad.net/dns-query" },
-  { name: "Mullvad Family", ips: ["194.242.2.6", "2a07:e340::6"], template: "https://family.dns.mullvad.net/dns-query" },
-  { name: "Mullvad All", ips: ["194.242.2.9", "2a07:e340::9"], template: "https://all.dns.mullvad.net/dns-query" },
   { name: "AdGuard (dns.adguard-dns.com)", ips: ["94.140.14.14", "94.140.15.15", "2a10:50c0::ad1:ff", "2a10:50c0::ad2:ff"], template: "https://dns.adguard-dns.com/dns-query" },
   { name: "AdGuard Family", ips: ["94.140.14.15", "94.140.15.16", "2a10:50c0::bad1:ff", "2a10:50c0::bad2:ff"], template: "https://family.adguard-dns.com/dns-query" },
   { name: "AdGuard Unfiltered", ips: ["94.140.14.140", "94.140.14.141", "2a10:50c0::1:ff", "2a10:50c0::2:ff"], template: "https://unfiltered.adguard-dns.com/dns-query" },
