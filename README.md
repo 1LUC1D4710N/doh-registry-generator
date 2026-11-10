@@ -3,6 +3,14 @@
 
 # DoH Registry Generator
 
+---
+
+      DNS0.eu has been discontinued on October 17th, 2025. 
+      For secure DNS-over-HTTPS, use alternatives like DNS4EU or NextDNS.io.
+      Mullvad DNS discontinued since November 2, 2026.
+
+---
+
 ### 🖼️ See It in Action
 <a href="https://www.youtube.com/watch?v=rigaALmiF1E">
     <img src="https://img.youtube.com/vi/rigaALmiF1E/0.jpg" alt="Windows DoH autotemplate example" width="560" height="315">
